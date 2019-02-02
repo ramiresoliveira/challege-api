@@ -8,6 +8,11 @@ const companySchema = new mongoose.Schema({
     },
     description: {
         type: String
+    },
+    idOwner: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'user',
+        required: true
     }
 
 },{ collection: 'company' })

@@ -25,15 +25,16 @@ exports.save = async (req, res) => {
 }
 
 exports.update = async (req, res) => {
-    let dataReq = req.body
-    let {id, ...data} = {
-        id: dataReq.id,
-        name: req.body.name,
-        enabled: req.body.enabled
+    let id = req.body.id
+    if(!id) {
+        res.status(400).json({"message": "Informe o Id"})
     }
+    let data = {}
+    if (req.body.name) data.name = req.body.name
+    if (req.body.enabled) data.enabled = req.body.enabled
     
     try {
-        let newRole = await roleModel.findByIdAndUpdate(id, data,{new: false, runValidators: true})
+        let newRole = await roleModel.findByIdAndUpdate(id, data,{new: false})
         res.status(202).json({"id": newRole.id})
     } catch(err) {
         res.status(500).json(err)
@@ -42,12 +43,12 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
     let id = req.body.id
-    if(!id){
+    if(!id) {
         res.status(400).json({"message": "Informe o Id"})
     }
     try {
         let role = await roleModel.findByIdAndDelete(id)
-        res.status(202).json(role)
+        res.status(202).json({"id": role.id})
     } catch(err) {
         res.status(500).json(err)
     }
