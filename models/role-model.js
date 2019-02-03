@@ -3,7 +3,7 @@ const mongoose = require('mongoose'),
 
 const roleSchema = new mongoose.Schema({
     idCompany :{
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'company',
         required: true
     },

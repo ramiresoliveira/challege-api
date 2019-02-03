@@ -10,7 +10,7 @@ const companySchema = new mongoose.Schema({
         type: String
     },
     idOwner: {
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'user',
         required: true
     }

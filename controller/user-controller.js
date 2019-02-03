@@ -1,6 +1,7 @@
 const userModel = require('../models/user-model')
 const companyModel = require('../models/company-model')
-const ObjectId = require('mongoose').Types.ObjectId
+const rolesModel = require('../models/role-model')
+
 exports.find = async (req, res) => {
     try {
         let user = await userModel.find({})
@@ -19,6 +20,30 @@ exports.save = async (req, res) => {
         enabled: req.body.enabled,
         roles: req.body.roles
     }
+    /*let rolesId = req.body.roles
+    if ((rolesId) && (typeof rolesId === 'object')) {
+        console.log("ENTROU")
+        try {
+            Object.values(rolesId).forEach( async val =>  {
+                console.log('_id' + val._id)
+                console.log('idCompany' + data.idCompany)
+                
+                let role = rolesModel.find({_id: val._id, idCompany: data.idCompany})
+                console.log(role.name)
+                if (Object.entries(role)===0){
+                    console.log("MSG")
+                    res.status(400).json({"message": "A Role" + val._id + " não pertence a esta empresa"})
+    
+                } else{
+                    console.log("OK")
+                    data.roles.push({"_id": val._id})
+                }
+            })
+        } catch(err) {
+            res.status(500).json(err)
+        }
+    }*/
+    
 
     try {
         let newUser = await new userModel(data).save()
@@ -50,7 +75,6 @@ exports.update = async (req, res) => {
 }
 
 exports.delete = async (req, res) => {
-    
     let id = req.body.id
     if(!id){
         res.status(400).json({"message": "Informe o Id"})

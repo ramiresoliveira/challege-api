@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         default: true
     },
     idCompany: {
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'company',
         required: true
     },
