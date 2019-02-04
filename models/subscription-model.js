@@ -12,7 +12,10 @@ const subscriptionSchema = new mongoose.Schema({
         required: true,
         ref: 'company'
     },
-    status: String,
+    status: {
+        type: String,
+        enum: ['trial', 'active', 'pastDue', 'blocked']
+    },
     enabled: {
         type: Boolean,
         default: true

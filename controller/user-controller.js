@@ -1,6 +1,10 @@
 const userModel = require('../models/user-model')
 const companyModel = require('../models/company-model')
 const rolesModel = require('../models/role-model')
+const SECRET = process.env.SECRET
+const jwt = require('jsonwebtoken')
+
+
 
 exports.find = async (req, res) => {
     try {
@@ -16,34 +20,10 @@ exports.save = async (req, res) => {
         name: req.body.name,
         idCompany: req.body.idCompany,
         email: req.body.email,
-        password: req.body.password,
+        password: Buffer.from(req.body.password).toString('base64'),
         enabled: req.body.enabled,
         roles: req.body.roles
     }
-    /*let rolesId = req.body.roles
-    if ((rolesId) && (typeof rolesId === 'object')) {
-        console.log("ENTROU")
-        try {
-            Object.values(rolesId).forEach( async val =>  {
-                console.log('_id' + val._id)
-                console.log('idCompany' + data.idCompany)
-                
-                let role = rolesModel.find({_id: val._id, idCompany: data.idCompany})
-                console.log(role.name)
-                if (Object.entries(role)===0){
-                    console.log("MSG")
-                    res.status(400).json({"message": "A Role" + val._id + " não pertence a esta empresa"})
-    
-                } else{
-                    console.log("OK")
-                    data.roles.push({"_id": val._id})
-                }
-            })
-        } catch(err) {
-            res.status(500).json(err)
-        }
-    }*/
-    
 
     try {
         let newUser = await new userModel(data).save()
@@ -61,7 +41,7 @@ exports.update = async (req, res) => {
     let data = {}
     if (req.body.name) data.name = req.body.name
     if (req.body.email) data.email = req.body.email
-    if (req.body.password) data.password = req.body.password
+    if (req.body.password) data.password = Buffer.from(req.body.password).toString('base64')
     if (req.body.enabled) data.enabled = req.body.enabled
     if (req.body.roles) data.roles = req.body.roles
 
@@ -89,5 +69,30 @@ exports.delete = async (req, res) => {
         }
     } catch(err){
         res.status(500).json(err)
+    }
+}
+
+exports.login = async (req, res) => {
+    let data = {
+        email: req.body.email,
+        password: req.body.password
+    }
+
+    let user = await userModel.findOne({'email': data.email, 'password': Buffer.from(data.password).toString('base64')})
+    if (user) {
+        let token = jwt.sign({
+            data: {email: data.email}
+        }, process.env.SECRET, { expiresIn: '1h' });
+        
+        res.status(201).json({
+            success: true,
+            message: 'Token criado',
+            token: token
+        }); 
+    } else {
+        res.status(401).json({
+            success: false,
+            message: 'Usuário não encontrado'
+        })
     }
 }
