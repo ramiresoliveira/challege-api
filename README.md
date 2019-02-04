@@ -1,5 +1,8 @@
 # challege-api
 
+- Configuração de variáveis de Ambiente
+  - .env
+
 - Iniciando o projeto e inserindo dados padrões (migration)
   - npm start
 
