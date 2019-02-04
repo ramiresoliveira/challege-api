@@ -6,14 +6,7 @@ const jwt = require('jsonwebtoken')
 const fs = require('fs')
 const path = require('path')
 const SECRET = process.env.SECRET
-const companyRoute = require('../routers/company-route')
-const roleRoute = require('../routers/role-route')
-const userRoute = require('../routers/user-route')
-const flowRoute = require('../routers/flow-route')
-const stepRoute = require('../routers/step-route')
-const viewerRoute = require('../routers/viewer-route')
-const activityRoute = require('../routers/activity-route')
-const trackRoute = require('../routers/track-router')
+
 
 auth = (req, res, next) => {
 
@@ -46,16 +39,7 @@ module.exports = function() {
     app.use(bodyParser.json())
     app.use(morgan('combined', {stream: accessLogStream}))
     app.use(auth)
-
-    app.use('/company', companyRoute)
-    app.use('/role', roleRoute)
-    app.use('/user', userRoute)
-    app.use('/flow', flowRoute)
-    app.use('/step', stepRoute)
-    app.use('/viewer', viewerRoute)
-    app.use('/activity', activityRoute)
-    app.use('/track', trackRoute)
-
+    
     return app
 }
 

@@ -38,8 +38,7 @@ exports.update = async (req, res) => {
     if (req.body.name) data.name = req.body.name
     if (req.body.description) data.description = req.body.description
     if (req.body.idOwner) data.idOwner = req.body.idOwner
-    if (req.body.subscription) data.idOwner = req.body.idOwner
-
+    
     try {
         let newCompany = await companyModel.findByIdAndUpdate(id, data, {new: false})
         if (req.body.subscription){

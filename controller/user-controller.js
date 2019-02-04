@@ -1,7 +1,6 @@
 const userModel = require('../models/user-model')
 const companyModel = require('../models/company-model')
 const rolesModel = require('../models/role-model')
-const SECRET = process.env.SECRET
 const jwt = require('jsonwebtoken')
 
 

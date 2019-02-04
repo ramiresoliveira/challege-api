@@ -1,7 +1,7 @@
 {
     "dev": {
         "driver": "mongodb",
-        "database": "challengeApi",
+        "database": "api",
         "host": "localhost"
     }
 }
