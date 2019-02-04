@@ -1,0 +1,859 @@
+{
+	"info": {
+		"_postman_id": "d09a256c-b565-4e22-98af-edf13874bc87",
+		"name": "challenge-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user-GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/user",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\t\n\t\"name\": \"Moises\",\n    \"idCompany\": \"5c539f218687cf1574157ef0\",\n    \"email\": \"moises@bol.com.br\",\n    \"password\": \"moi123\",\n    \"roles\":[{\"_id\": \"5c54c933aa81232724af03c4\"}, {\"_id\": \"5c55b49f34e51d16bf186a0e\"}]\n}"
+						},
+						"url": {
+							"raw": "{{server}}/user",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5c55b88d3d8486178a029652\",\n\t\"password\": \"123oliveira4\",\n\t\"enabled\": true\n}"
+						},
+						"url": {
+							"raw": "{{server}}/user",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5c54f2e6904b9c38f6b60aa2\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/user",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"item": [
+				{
+					"name": "role-GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/role",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "role-POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Chefe\",\n\t\"idCompany\": \"5c539f218687cf1574157ef0\",\n\t\"enabled\": \"true\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/role",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "role-PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{server}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5c53aea239440d1c80b1ee55\",\n\t\"name\": \"Chefe\",\n\t\"enabled\": true\n}"
+						},
+						"url": {
+							"raw": "{{server}}/role",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "role-DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5c53aea239440d1c80b1ee55\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/role",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "company-GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/company",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company-POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Empresa 1\",\n\t\"description\": \"Empresa 1 descrição\",\n\t\"idOwner\": \"5c55b88d3d8486178a029652\",\n\t\"subscription\": {\n\t\t\"idPlan\": \"5c55cd3b1964bb20ddc2804c\",\n\t\t\"status\": \"trial\",\n\t\t\"dueDate\": 5\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{server}}/company",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company-PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5c539f218687cf1574157ef0\",\n\t\"name\": \"ramires\",\n\t\"description\" : \"compania do ramires\",\n\t\"idOwner\": \"5c54f2e6904b9c38f6b60aa2\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/company",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "flow",
+			"item": [
+				{
+					"name": "flow-POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Ciclo 1\",\n\t\"description\": \"descrição 1\",\n\t\"idCompany\": \"5c539f218687cf1574157ef0\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/flow",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"flow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "flow-GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/flow",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"flow"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "flow-PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5c572be8b8fcc02266a9d11b\",\n\t\"name\": \"Ciclo 1\",\n\t\"description\": \"ciclo descrição 1\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/flow",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"flow"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "flow-DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"5c572be8b8fcc02266a9d11b\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/flow",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"flow"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "step",
+			"item": [
+				{
+					"name": "step-POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"passo 3\",\n    \"description\": \"descrição passo 3\",\n    \"idFlow\": \"5c5731bdc6f18524b8bd1c35\",\n    \"idCompany\": \"5c539f218687cf1574157ef0\",\n    \"type\": \"modal\",\n    \"innerText\": \"texto interno 3\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/step",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"step"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "step-GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/step",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"step"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "viewer",
+			"item": [
+				{
+					"name": "viewer-POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"customFields\": \"campo de teste 2\",\n\t\"clientId\": \"01234\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/viewer",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"viewer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewer-GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/viewer",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"viewer"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "activity",
+			"item": [
+				{
+					"name": "activity-POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idFlow\": \"5c5731bdc6f18524b8bd1c35\",\n\t\"ownerViewer\": \"5c57414c7533592a51473506\",\n\t\"type\": \"StartFlow\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/activity",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activity-GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/activity",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"activity"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fa98cf68-9db1-4f89-9242-b3b7feca4234",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b92fbd0c-ec04-45e2-881b-cc6dc80b41a7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "track",
+			"item": [
+				{
+					"name": "track-POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"action\": \"Create\",\n\t\"object\": \"Company\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/track",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"track"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "track-GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/track",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"track"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "af43cbed-04f0-4c28-ae8e-a5503c98bc59",
+						"exec": [
+							"pm.globals.set(\"token\", pm.response.json().token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"ramires@bol.com.br\",\n\t\"password\": \"123oliveira4\"\n}"
+				},
+				"url": {
+					"raw": "{{server}}/user/login",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
